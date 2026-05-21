@@ -24,10 +24,8 @@ export default function Error({
   resetErrorBoundary,
 }: Props) {
   const errorMessage =
-    description ||
-    (error as Error)?.message ||
-    "An unexpected error occurred. Please try again.";
-
+    description || "An unexpected error occurred. Please try again.";
+  console.error(error);
   return (
     <Alert
       variant="destructive"

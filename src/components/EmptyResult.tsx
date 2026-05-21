@@ -30,7 +30,7 @@ export default function EmptyResult({
         <EmptyMedia>
           {icon || <EmptyIcon className="size-full bg-transparent" />}
         </EmptyMedia>
-        <EmptyTitle>{title}</EmptyTitle>
+        <EmptyTitle className="text-2xl">{title}</EmptyTitle>
         {description && <EmptyDescription>{description}</EmptyDescription>}
       </EmptyHeader>
       {children && (

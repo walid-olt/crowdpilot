@@ -24,7 +24,7 @@ const ProjectRow = ({ project }: Props) => {
   return (
     <TableRow
       key={_id}
-      onClick={() => navigate(`/projects/${_id}`)}
+      // onClick={() => navigate(`/projects/${_id}`)}
       className="cursor-pointer"
       title={"click to view details"}
     >

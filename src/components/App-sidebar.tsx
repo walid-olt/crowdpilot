@@ -17,6 +17,7 @@ import {
   LayoutDashboard,
   User,
   Power,
+  SidebarClose,
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { useAppSelector } from "@/store/hooks";

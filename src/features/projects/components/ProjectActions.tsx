@@ -8,12 +8,15 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import type { Project } from "@/types/api";
+import { useProjectDeleteDialogue } from "../hooks/index.tsx";
 
 type Props = {
   project: Project;
 };
 
 const ProjectActions = ({ project }: Props) => {
+  const { open } = useProjectDeleteDialogue(project);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -21,11 +24,11 @@ const ProjectActions = ({ project }: Props) => {
           <MoreHorizontalIcon />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className="*:cursor-pointer">
         <DropdownMenuItem>view details</DropdownMenuItem>
         <DropdownMenuItem>edit project</DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem variant="destructive">
+        <DropdownMenuItem variant="destructive" onClick={open}>
           delete project
         </DropdownMenuItem>
       </DropdownMenuContent>

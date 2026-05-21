@@ -20,9 +20,17 @@ export default function App() {
                 backgroundColor: "var(--popover)",
                 color: "var(--popover-foreground) ",
               },
-              iconTheme: {
-                primary: "var(--primary)",
-                secondary: "var(--secondary)",
+              error: {
+                iconTheme: {
+                  primary: "var(--destructive)",
+                  secondary: "var(--destructive-foreground)",
+                },
+              },
+              success: {
+                iconTheme: {
+                  primary: "var(--primary)",
+                  secondary: "var(--secondary)",
+                },
               },
             }}
           />
