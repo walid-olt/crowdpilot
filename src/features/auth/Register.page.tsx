@@ -136,31 +136,9 @@ export default function RegisterPage() {
             )}
           </div>
 
-          <div className="space-y-2">
-            <label
-              htmlFor="role"
-              className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground"
-            >
-              Role
-            </label>
-            <select
-              {...register("role")}
-              id="role"
-              name="role"
-              defaultValue={defaultRole}
-              className="flex h-9 w-full items-center justify-between rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-            >
-              <option value="" disabled>
-                Select a role
-              </option>
-              <option value="OWNER">Project owner</option>
-              <option value="INVESTOR">Investor</option>
-            </select>
-          </div>
-
           <Button
             type="submit"
-            className="w-full disabled:grayscale"
+            className="w-full disabled:grayscale  my-4"
             disabled={isPending}
           >
             {isPending ? "..." : "Create account"}

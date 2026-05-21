@@ -25,13 +25,7 @@ export default function HomePage() {
               to="/register?role=owner"
               className="inline-flex items-center justify-center rounded-(--radius) border border-foreground/20 bg-foreground px-6 py-3 text-sm font-medium uppercase tracking-[0.2em] text-background transition hover:bg-primary"
             >
-              Project owner
-            </Link>
-            <Link
-              to="/register?role=investor"
-              className="inline-flex items-center justify-center rounded-(--radius) border border-foreground/20 bg-transparent px-6 py-3 text-sm font-medium uppercase tracking-[0.2em] text-foreground transition hover:bg-foreground/5"
-            >
-              Investor
+              Lunch a project
             </Link>
           </div>
 
