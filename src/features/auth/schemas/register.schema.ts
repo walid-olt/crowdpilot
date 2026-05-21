@@ -1,5 +1,5 @@
 import { z } from "zod";
-export const userRoleSchema = z.enum(["OWNER", "INVESTOR"]);
+export const userRoleSchema = z.enum(["OWNER", "INVESTOR"]).default("OWNER");
 const finiteNumberMessage = "Value must be a finite number";
 
 export const userRegisterSchema = z
