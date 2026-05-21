@@ -33,3 +33,19 @@ export const deleteProject = async (id: string): Promise<ProjectResponse> => {
     }
   }
 };
+
+export const getProjectById = async (id: string) => {
+  try {
+    const { data } = await apiClient.get<ProjectResponse>(`/projects/${id}`);
+    return data;
+  } catch (e) {
+    if (e instanceof AxiosError) {
+      throw new Error(e.response?.data.message, {
+        cause: e,
+        ...e.response?.data,
+      });
+    } else {
+      throw e;
+    }
+  }
+};

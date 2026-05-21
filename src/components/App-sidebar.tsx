@@ -17,7 +17,6 @@ import {
   LayoutDashboard,
   User,
   Power,
-  SidebarClose,
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { useAppSelector } from "@/store/hooks";
@@ -28,7 +27,6 @@ const links = [
   { name: "Dashboard", path: "dashboard", icon: LayoutDashboard },
   { name: "Projects", path: "projects", icon: Briefcase },
   { name: "Investments", path: "investments", icon: Landmark },
-  { name: "Profile", path: "profile", icon: User },
 ];
 
 export function AppSidebar() {

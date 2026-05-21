@@ -5,7 +5,9 @@ import PublicLayout from "@/layouts/PublicLayout.tsx";
 import LoginPage from "@/features/auth/Login.page";
 import RegisterPage from "@/features/auth/Register.page";
 import HomePage from "@/features/home/Home.page";
-import ProjectsPage from "@/features/projects/Projects.page.tsx";
+import ProjectsPage from "@/features/projects/pages/Projects.page.tsx";
+
+import ProjectDetailsPage from "@/features/projects/pages/Project-details.page.tsx";
 import Notfound from "@/components/Notfound";
 import { publicLoader, authLoader } from "./loaders.ts";
 const router = createBrowserRouter([
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "projects",
         element: <ProjectsPage />,
+      },
+      {
+        path: "projects/:id",
+        element: <ProjectDetailsPage />,
       },
     ],
   },
