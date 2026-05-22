@@ -25,7 +25,7 @@ export default function HomePage() {
               to="/register?role=owner"
               className="inline-flex items-center justify-center rounded-(--radius) border border-foreground/20 bg-foreground px-6 py-3 text-sm font-medium uppercase tracking-[0.2em] text-background transition hover:bg-primary"
             >
-              Lunch a project
+              Launch a project
             </Link>
           </div>
 

@@ -13,7 +13,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   Briefcase,
-  Landmark,
   LayoutDashboard,
   User,
   Power,
@@ -26,7 +25,6 @@ import { useLogout } from "@/features/auth/hooks";
 const links = [
   { name: "Dashboard", path: "dashboard", icon: LayoutDashboard },
   { name: "Projects", path: "projects", icon: Briefcase },
-  { name: "Investments", path: "investments", icon: Landmark },
 ];
 
 export function AppSidebar() {
@@ -61,7 +59,6 @@ export function AppSidebar() {
                   <SidebarMenuButton
                     size={"lg"}
                     isActive={isActive}
-                    tooltip={link.name}
                     className={`w-full justify-start rounded-none! ${isActive ? "text-primary! bg-primary-foreground! " : ""} `}
                   >
                     <link.icon className="size-4 mr-2" />

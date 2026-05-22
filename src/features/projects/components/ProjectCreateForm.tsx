@@ -175,7 +175,7 @@ export const ProjectCreateForm = () => {
             {isPending ? (
               <LucideRocket className="animate-pulse size-fit" />
             ) : (
-              "lunch"
+              "launch"
             )}
           </Button>
         </form>
