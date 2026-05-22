@@ -1,13 +1,13 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { type Project } from "@/types/api";
 
-type state = {
+type ProjectsState = {
   isEditingModalOpen: boolean;
   isDeleteModalOpen: boolean;
   currentProject: Project | null;
   projectToDelete: Project | null;
 };
-const initialState: state = {
+const initialState: ProjectsState = {
   isEditingModalOpen: false,
   isDeleteModalOpen: false,
   currentProject: null,
@@ -37,4 +37,11 @@ const projectSlice = createSlice({
   },
 });
 
-export const {} = projectSlice.actions;
+export default projectSlice.reducer;
+
+export const {
+  openEditingModal,
+  closeDeleteDialogue,
+  closeEditingModal,
+  openDeleteDialogue,
+} = projectSlice.actions;
