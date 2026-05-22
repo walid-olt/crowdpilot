@@ -6,6 +6,9 @@ import { Provider } from "react-redux";
 import store from "./store/store.ts";
 import { TooltipProvider } from "@/components/ui/tooltip.tsx";
 
+import { setStore } from "./api/client.ts";
+
+setStore(store);
 export default function App() {
   return (
     <Provider store={store}>

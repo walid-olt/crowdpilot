@@ -32,13 +32,14 @@ const links = [
 
 export function AppSidebar() {
   const user = useAppSelector((state) => state.auth.user);
-  const { state } = useSidebar();
+  const { state, setOpen } = useSidebar();
+
   const logout = useLogout();
-  if (!user) return null;
+  if (!user) return null; // just in case, but ideally this component shouldn't render if there's no user
   const { email, role, name, balance } = user;
 
   return (
-    <Sidebar>
+    <Sidebar onPointerLeave={() => setOpen(false)}>
       <SidebarHeader className={cn("border-b border-border/50 flex  ")}>
         <div className="flex justify-between">
           <NavLink to="/" className="flex items-center gap-2">

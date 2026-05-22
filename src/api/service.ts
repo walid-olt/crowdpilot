@@ -1,4 +1,4 @@
-import { apiClient, setAuthToken } from "./client.ts";
+import { apiClient } from "./client.ts";
 import type {
   RegisterSuccessResponse,
   AuthResponse,
@@ -54,9 +54,8 @@ export async function loginUser(payload: userLoginData) {
   }
 }
 
-export async function getLogedInUser(token: string) {
+export async function getLogedInUser() {
   try {
-    setAuthToken(token);
     const { data } = await apiClient.get<AuthMeResponse>("/auth/me");
     if (!data || !data.data) {
       throw new Error("Something went wrong");

@@ -5,7 +5,7 @@ import PublicLayout from "@/layouts/PublicLayout.tsx";
 import LoginPage from "@/features/auth/Login.page";
 import RegisterPage from "@/features/auth/Register.page";
 import HomePage from "@/features/home/Home.page";
-import Projects from "@/features/projects/Projects.tsx";
+import ProjectsPage from "@/features/projects/Projects.page.tsx";
 import Investments from "@/features/investments/Investments.tsx";
 import Profile from "@/features/profile/Profile.tsx";
 import Notfound from "@/components/Notfound";
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       },
       {
         path: "projects",
-        element: <Projects />,
+        element: <ProjectsPage />,
       },
       {
         path: "investments",
