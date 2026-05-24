@@ -35,7 +35,7 @@ const ProjectsTable = ({ projects }: Props) => {
                   <LucideCircleQuestionMark size={14} /> MIP
                 </TableHead>
               </TooltipTrigger>
-              <TooltipContent className="bg-popover text-popover-foreground">
+              <TooltipContent>
                 Max Investment Percentage. The maximum percentage of the target
                 amount that a single investor can contribute to the project.
               </TooltipContent>

@@ -9,7 +9,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import type { Project } from "@/types/api";
 
-import { useProjectDeleteDialogue } from "../hooks/index.tsx";
+import {
+  useProjectDeleteDialogue,
+  useProjectUpdateDialogue,
+} from "../hooks/index.tsx";
 import Guard from "@/components/Guard.tsx";
 import { useNavigate } from "react-router-dom";
 
@@ -19,6 +22,7 @@ type Props = {
 
 const ProjectActions = ({ project }: Props) => {
   const { open } = useProjectDeleteDialogue(project);
+  const { open: openUpdate } = useProjectUpdateDialogue(project);
   const navigate = useNavigate();
 
   return (
@@ -31,19 +35,41 @@ const ProjectActions = ({ project }: Props) => {
       <DropdownMenuContent className="*:cursor-pointer">
         <DropdownMenuItem
           className="group/item"
-          onClick={() => navigate(project._id)}
+          onClick={(e) => {
+            e.stopPropagation();
+            navigate(`/app/projects/${project._id}`);
+          }}
         >
           view details{" "}
           <ExternalLinkIcon className="group-hover/item:opacity-100 opacity-0" />
         </DropdownMenuItem>
-        <DropdownMenuItem>edit project</DropdownMenuItem>
+        <Guard
+          toolTipSide="bottom"
+          when={project.status === "CLOSED"}
+          reason="You can't edit a project that has been closed"
+        >
+          <DropdownMenuItem
+            onClick={(e) => {
+              e.stopPropagation();
+              openUpdate();
+            }}
+          >
+            edit project
+          </DropdownMenuItem>
+        </Guard>
         <DropdownMenuSeparator />
         <Guard
           toolTipSide="bottom"
           when={project.status === "CLOSED"}
           reason="You can't delete a project that has been closed"
         >
-          <DropdownMenuItem variant="destructive" onClick={open}>
+          <DropdownMenuItem
+            variant="destructive"
+            onClick={(e) => {
+              e.stopPropagation();
+              open();
+            }}
+          >
             delete project
           </DropdownMenuItem>
         </Guard>

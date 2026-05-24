@@ -185,6 +185,9 @@
   html {
     @apply font-sans;
   }
+  button:disabled {
+    @apply cursor-not-allowed!;
+  }
   button {
     @apply cursor-pointer!;
   }

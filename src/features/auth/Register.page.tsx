@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { userRegisterSchema } from "./schemas/register.schema.ts";
 import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
@@ -42,10 +42,10 @@ export default function RegisterPage() {
     mutate(formData);
   }
 
-  const [params] = useSearchParams();
+  // const [params] = useSearchParams();
 
-  const defaultRole =
-    params.get("role")?.toUpperCase() || ("OWNER" as "OWNER" | "INVESTOR");
+  // const defaultRole =
+  //   params.get("role")?.toUpperCase() || ("OWNER" as "OWNER" | "INVESTOR");
 
   const {
     register,
@@ -65,9 +65,9 @@ export default function RegisterPage() {
           <h1 className="font-serif text-4xl leading-tight">
             Create your account
           </h1>
-          <p className="text-sm text-muted-foreground">
-            Choose a role and complete the basics to get started.
-          </p>
+          {/* <p className="text-sm text-muted-foreground"> */}
+          {/*   Choose a role and complete the basics to get started. */}
+          {/* </p> */}
         </div>
 
         <form className="mt-8 space-y-4" onSubmit={handleSubmit(onSubmit)}>
@@ -138,7 +138,7 @@ export default function RegisterPage() {
 
           <Button
             type="submit"
-            className="w-full disabled:grayscale  my-4"
+            className="w-full disabled:grayscale h-10"
             disabled={isPending}
           >
             {isPending ? "..." : "Create account"}

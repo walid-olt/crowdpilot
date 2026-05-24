@@ -108,7 +108,7 @@ export default function LoginPage() {
 
           <Button
             type="submit"
-            className="w-full disabled:grayscale"
+            className="w-full disabled:grayscale h-10 cursor-pointer"
             disabled={isPending}
           >
             {isPending ? "..." : "Log in"}
@@ -127,3 +127,4 @@ export default function LoginPage() {
     </div>
   );
 }
+

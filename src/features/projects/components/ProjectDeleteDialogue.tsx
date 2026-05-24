@@ -13,12 +13,14 @@ import { useAppSelector } from "@/store/hooks";
 import { useProjectDeleteDialogue, useDeleteProjectMutation } from "../hooks";
 import toast from "react-hot-toast";
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProjectDeleteDialogue = () => {
   const project = useAppSelector((s) => s.projects.projectToDelete);
   const showDialogue = useAppSelector((s) => s.projects.isDeleteModalOpen);
   const { close } = useProjectDeleteDialogue(project!);
   const { isPending, mutate } = useDeleteProjectMutation();
+  const navigate = useNavigate();
   const deleteProject = useCallback(
     (id: string) => {
       mutate(id, {
@@ -30,11 +32,12 @@ const ProjectDeleteDialogue = () => {
 
         onSuccess: () => {
           toast.success("Project deleted successfully");
+          navigate("/app/projects");
           close();
         },
       });
     },
-    [mutate, close],
+    [mutate, close, navigate],
   );
   return (
     <>
