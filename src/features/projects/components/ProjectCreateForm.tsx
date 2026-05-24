@@ -21,7 +21,6 @@ export const ProjectCreateForm = () => {
   } = useForm<ProjectData>({
     resolver: zodResolver(projectCreateSchema),
   });
-  // └╴  Argument of type '{ title: string; description: string; targetCapital: number; ownerInvestment: number; maxInvestmentPercentage: number; }' is not assignable to parameter of type 'CreateProjectRequestBody'.
   const onSubmit = (data: ProjectData) => {
     const tid = toast.loading("Creating project...");
     mutate(data, {
@@ -30,11 +29,11 @@ export const ProjectCreateForm = () => {
        */
       onSuccess: (reponse) => {
         const project = reponse.data!;
+        reset();
         toast.dismiss(tid);
         naviagte(`/app/projects/${project._id}`);
       },
     });
-    reset();
   };
   useEffect(() => {
     // focus the title input on mount
@@ -50,7 +49,10 @@ export const ProjectCreateForm = () => {
           </h1>
         </div>
 
-        <form className="mt-8 space-y-4" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className={`mt-8 space-y-4 ${isPending && "pointer-events-none grayscale"}`}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="space-y-2">
             <label
               htmlFor="title"
