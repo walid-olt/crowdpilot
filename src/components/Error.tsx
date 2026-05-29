@@ -5,31 +5,49 @@ import {
   AlertTitle,
 } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
+import type { FallbackProps } from "react-error-boundary";
+import { LucideCircleX } from "lucide-react";
 
 type Props = {
-  action: () => void;
-  description: string;
-  title: string;
-  icon: React.ReactNode;
+  title?: string;
+  description?: string;
+  icon?: React.ReactNode;
   actionLabel?: string;
-};
+} & FallbackProps;
 
 export default function Error({
-  action,
+  title = "Something went wrong!",
   description,
-  title,
   icon,
-  actionLabel,
+  actionLabel = "Try Again",
+  error,
+  resetErrorBoundary,
 }: Props) {
+  const errorMessage =
+    description || "An unexpected error occurred. Please try again.";
+  console.error(error);
   return (
-    <Alert variant="destructive">
-      <AlertTitle>{title}</AlertTitle>
-      <AlertDescription>{description}</AlertDescription>
-      <AlertAction>
-        <Button onClick={action} className="text-sm">
-          {icon} {actionLabel || "Try Again"}
-        </Button>
-      </AlertAction>
+    <Alert
+      variant="destructive"
+      role="alert"
+      className="my-8 mx-auto max-w-2/4"
+    >
+      <AlertTitle className="flex items-center gap-2">
+        {icon || <LucideCircleX className="size-5" />}
+        <span>{title}</span>
+      </AlertTitle>
+
+      <AlertDescription className="mt-2 text-sm opacity-90">
+        {errorMessage}
+      </AlertDescription>
+
+      {resetErrorBoundary && (
+        <AlertAction className="mt-4">
+          <Button onClick={resetErrorBoundary} variant="outline" size="sm">
+            {actionLabel}
+          </Button>
+        </AlertAction>
+      )}
     </Alert>
   );
 }

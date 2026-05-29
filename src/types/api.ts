@@ -81,6 +81,7 @@ export type CreateProjectRequestBody = {
 export type UpdateProjectRequestBody = {
   title?: string;
   description?: string;
+  currentCapital?: number;
   targetCapital?: number;
   maxInvestmentPercentage?: number;
 };

@@ -5,11 +5,12 @@ import PublicLayout from "@/layouts/PublicLayout.tsx";
 import LoginPage from "@/features/auth/Login.page";
 import RegisterPage from "@/features/auth/Register.page";
 import HomePage from "@/features/home/Home.page";
-import Projects from "@/features/projects/Projects.tsx";
-import Investments from "@/features/investments/Investments.tsx";
-import Profile from "@/features/profile/Profile.tsx";
+import ProjectsPage from "@/features/projects/pages/Projects.page.tsx";
+
+import ProjectDetailsPage from "@/features/projects/pages/Project-details.page.tsx";
 import Notfound from "@/components/Notfound";
 import { publicLoader, authLoader } from "./loaders.ts";
+import ProjectCreatePage from "@/features/projects/pages/Project-create.page.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,16 +47,13 @@ const router = createBrowserRouter([
       },
       {
         path: "projects",
-        element: <Projects />,
+        element: <ProjectsPage />,
       },
       {
-        path: "investments",
-        element: <Investments />,
+        path: "projects/:id",
+        element: <ProjectDetailsPage />,
       },
-      {
-        path: "profile",
-        element: <Profile />,
-      },
+      { path: "projects/create", element: <ProjectCreatePage /> },
     ],
   },
   {
